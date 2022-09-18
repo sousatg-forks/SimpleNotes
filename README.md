@@ -33,3 +33,7 @@ https://user-images.githubusercontent.com/29480670/190432960-be8dd793-de87-460c-
    ```bash
    pip install -r requirements.txt
    ```
+4. Run migrations
+   ```bash
+   python manage.py migrate
+   ```
