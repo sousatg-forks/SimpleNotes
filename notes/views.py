@@ -51,8 +51,3 @@ def delete(request, id):
     current_user = User.objects.get(username=request.user.username)
     Post.objects.filter(user=current_user, id=id).delete()
     return redirect('/')
-
-
-# def logout_view(request):
-#     logout(request)
-#     return redirect('login')
