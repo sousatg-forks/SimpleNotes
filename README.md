@@ -42,4 +42,3 @@ https://user-images.githubusercontent.com/29480670/190432960-be8dd793-de87-460c-
    SECRET_KEY=secret
    DEBUG=True
    ALLOWED_HOSTS=localhost,127.0.0.1,
-   ```
