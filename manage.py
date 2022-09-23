@@ -2,11 +2,17 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from opentelemetry.instrumentation.django import DjangoInstrumentor
+from opentelemetry.instrumentation.sqlite3 import SQLite3Instrumentor
 
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'simplenotes.settings')
+
+    DjangoInstrumentor().instrument()
+    SQLite3Instrumentor().instrument()
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
