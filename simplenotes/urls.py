@@ -20,5 +20,5 @@ urlpatterns = [
     path('', include('notes.urls')),
     path('', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-
+    path('', include('django_prometheus.urls')),
 ]
