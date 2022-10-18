@@ -77,14 +77,17 @@ WSGI_APPLICATION = 'simplenotes.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django_prometheus.db.backends.mysql',
-        'NAME': 'simplenotes',
-        'USER': 'simplentes',
-        'PASSWORD': 'simplenotes',
-        'HOST': '192.168.33.15',
-        'PORT': '3306',
-    }
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'simplenotes',  
+        'USER': 'simplenotes',  
+        'PASSWORD': 'simplenotes',  
+        'HOST': '192.168.33.15',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
 }
 
 
