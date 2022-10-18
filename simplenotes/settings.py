@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'simplenotes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_prometheus.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django_prometheus.db.backends.mysql',
+        'NAME': 'simplenotes',
+        'USER': 'simplentes',
+        'PASSWORD': 'simplenotes',
+        'HOST': '192.168.33.15',
+        'PORT': '3306',
     }
 }
 
