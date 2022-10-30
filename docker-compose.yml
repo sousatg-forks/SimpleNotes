@@ -1,0 +1,14 @@
+version: "3"
+   
+services:
+  app:
+    image: localhost:5000/simplenotes
+    build: .
+    command: >
+      bash -c "gunicorn -c simplenotes/gunicorn.conf.py simplenotes.wsgi"
+    environment:
+      - PORT=8001
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8001"
