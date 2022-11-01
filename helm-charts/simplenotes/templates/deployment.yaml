@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ default .Release.Namespace .Values.namespace }}
+  labels:
+    version: {{ .Values.image.tag }}
+    env: {{ .Values.env }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector: 
+    matchLabels:
+      app: {{ .Values.name }}
+      env: {{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+        version: {{ .Values.image.tag }}
+        env: {{ .Values.env }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "sousatg/simplenotes:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
+          env:
+            - name: PORT
+              value: {{ required "You must set a default from name" .Values.environment.PORT | quote }}
+          ports:
+            - containerPort: 8001
+          resources:
+             {{- toYaml .Values.resources | nindent 12 }}

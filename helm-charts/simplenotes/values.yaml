@@ -1,0 +1,27 @@
+replicaCount: 1
+
+name: simplenotes
+env: development
+maxReplicas: 10
+cpuUsage: 50
+
+image:
+  name: simplenotes
+  tag: 'latest'
+
+service:
+  type: LoadBalancer
+  port: 8001
+  portName: http
+
+environment: {
+  PORT: 8001
+}
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
